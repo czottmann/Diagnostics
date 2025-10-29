@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
         var reporters = DiagnosticsReporter.DefaultReporter.allReporters
         reporters.insert(CustomReporter(), at: 1)
 
-        let documentsURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let documentsURL = try! FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         let directoryTreesReporter = DirectoryTreesReporter(
             trunks: [
                 Directory(url: documentsURL)

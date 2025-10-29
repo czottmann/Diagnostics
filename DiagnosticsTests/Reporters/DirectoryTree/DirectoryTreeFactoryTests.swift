@@ -84,7 +84,7 @@ final class DirectoryTreeFactoryTests: XCTestCase {
 
     func createTestDirectory() throws -> URL {
         let documentsURL = FileManager.default
-            .urls(for: .documentDirectory, in: .userDomainMask).first!
+            .urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
         let baseURL = documentsURL.appendingPathComponent("treetest")
         try FileManager.default.createDirectory(at: baseURL, withIntermediateDirectories: true, attributes: nil)
 
