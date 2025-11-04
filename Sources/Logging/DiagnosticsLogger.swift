@@ -320,7 +320,16 @@ private extension FileManager {
 
   var applicationSupportDirectory: URL {
     let paths = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
-    return paths[0]
+    let baseURL = paths[0]
+
+    guard let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
+      Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ??
+      Bundle.main.bundleIdentifier
+    else {
+      return baseURL
+    }
+
+    return baseURL.appendingPathComponent(appName)
   }
 
   // MARK: - Functions
