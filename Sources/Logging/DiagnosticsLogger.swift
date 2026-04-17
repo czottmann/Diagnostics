@@ -203,7 +203,7 @@ extension DiagnosticsLogger {
     }
 }
 
-private extension FileManager {
+extension FileManager {
     /// Location of the logger's Application Support directory.
     ///
     /// On sandboxed processes (iOS, tvOS, watchOS, and sandboxed macOS apps) the system already
